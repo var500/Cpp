@@ -8,8 +8,7 @@ int main()
     string numStr;
     cout << "Enter the number: ";
     cin >> numStr;
-    sort(numStr.begin(), numStr.end());
-    reverse(numStr.begin(), numStr.end());
+    sort(numStr.begin(), numStr.end(), greater<int>());
     cout << numStr << endl;
     return 0;
 }
