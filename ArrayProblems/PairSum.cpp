@@ -20,31 +20,34 @@ int main(){
 }
 */
 
-bool pairsum(int arr[],int n, int k){
+bool pairsum(int arr[], int n, int k)
+{
     int low = 0;
-    int high = n-1;
-    while(low<high){
-        for(int i=0;i<n;i++){
-
-            if(arr[low]+arr[high]==k){
-                cout<<low<<" "<<high<<endl;
-                return true;
-            }
-            else if(arr[low]+arr[high]>k){
-                high-=1;
-            }
-            else {
-                low+=1;
-            }
+    int high = n - 1;
+    while (low < high)
+    {
+        if (arr[low] + arr[high] == k)
+        {
+            cout << low << " " << high << endl;
+            return true;
+        }
+        else if (arr[low] + arr[high] > k)
+        {
+            high -= 1;
+        }
+        else
+        {
+            low += 1;
         }
     }
     return false;
 }
 
-//Array should be sorted
-int main(){
-    int arr[] = {2,4,7,11,14,16,20,21};
-    int k =31;
+// Array should be sorted
+int main()
+{
+    int arr[] = {2, 4, 7, 11, 14, 16, 20, 21};
+    int k = 31;
 
-    cout<<pairsum(arr,8,k)<<endl;
+    cout << pairsum(arr, 8, k) << endl;
 }
