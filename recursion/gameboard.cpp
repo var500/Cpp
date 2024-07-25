@@ -1,6 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/**
+ * @def This code will return all possible paths to reach from point a to point b on a linear board
+ * @param {number} s staring point
+ * @param {number} e ending point
+ */
+
 int countPath(int s, int e)
 {
     if (s == e)
