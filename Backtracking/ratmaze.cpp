@@ -1,6 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/**
+ * Backtracking is an algorithmic-technique for solving recursive
+ * problems by trying to build every possible solution incrementally and
+ * remoying those solutions that fail to satisfy the constrains of the
+ * problem at any point of time.
+ */
+
 bool isSafe(int **arr, int x, int y, int n)
 {
     if (x < n && y < n && arr[x][y] == 1)
