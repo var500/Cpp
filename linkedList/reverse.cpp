@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/**
+ * @def This code reverses a linked List
+ */
+
 class node
 {
 public:
