@@ -2,7 +2,7 @@
 using namespace std;
 
 /**
- * @def This code reverses a linked List
+ * @def This code reverses a linked List with time complexity of O(n)
  */
 
 class node
@@ -66,6 +66,21 @@ node *reverse(node *&head)
     return prev;
 }
 
+node *reverseRecursive(node *&head)
+{
+
+    if (head == NULL || head->next == NULL)
+    {
+        return head;
+    }
+
+    node *newHead = reverseRecursive(head->next);
+    head->next->next = head;
+    head->next = NULL;
+
+    return newHead;
+}
+
 int main()
 {
     node *head = NULL;
@@ -77,5 +92,6 @@ int main()
 
     cout << "After Reversing LL" << endl;
     node *newHead = reverse(head);
+    // node *newHead = reverseRecursive(head);
     display(newHead);
 }
