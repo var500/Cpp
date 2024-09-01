@@ -87,6 +87,7 @@ void deletion(node *&head, int val)
         return;
     }
 
+    // Case: If the element is at the start
     node *temp = head;
     if (temp->data == val)
     {
