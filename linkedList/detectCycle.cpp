@@ -75,7 +75,7 @@ bool detectCycle(node *&head)
     node *slow = head;
     node *fast = head;
 
-    while (fast != NULL && fast->next != NULL)
+    while (fast != NULL && fast->next != NULL) // Note: Fast takes 2 steps so need to check for NULL at n and n+1 pos
     {
         slow = slow->next;
         fast = fast->next->next;
