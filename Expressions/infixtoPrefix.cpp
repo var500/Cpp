@@ -1,29 +1,15 @@
 /**
- * @def This code converts infix expressions to postfix expressions
- * 2+3*8/4-1 -> 23+8*4/1-
+ * @def This code converts infix expressions to Prefix expressions
+ * (a - b / c) * ( a / k -l ) ->
+ *
+ * The algo is simmilar to Infix to Postfix with 3 additional steps:
+ * Reverse the string: ) l - k / a ( * ) c / b - a (
+ * Replace closing with opening brackets and vice versa : (l -k / a) * (c / b - a )
+ * Reverse the solution string that is the answer
  */
 
 #include <bits/stdc++.h>
 using namespace std;
-
-// Type 1: Without Brackets
-string infixToPostfix(string s)
-{
-
-    char temp;
-    for (int i = s.length() - 1; i >= 0; i--)
-    {
-
-        if (!(s[i] >= '0' && s[i] <= '9'))
-        {
-            temp = s[i];
-            s[i] = s[i + 1];
-            s[i + 1] = temp;
-        }
-    }
-
-    return s;
-}
 
 int prec(char c)
 {
@@ -46,9 +32,10 @@ int prec(char c)
     }
 }
 
-// Type 2: With Brackets (a - b / c) * (a / k - l)
 string infix2Prefix(string s)
 {
+    reverse(s.begin(), s.end());
+
     stack<char> st;
     string sol;
     for (int i = 0; i < s.length(); i++)
@@ -58,14 +45,14 @@ string infix2Prefix(string s)
             sol += s[i];
         }
 
-        else if (s[i] == '(')
+        else if (s[i] == ')')
         {
             st.push(s[i]);
         }
 
-        else if (s[i] == ')')
+        else if (s[i] == '(')
         {
-            while (!st.empty() && st.top() != '(')
+            while (!st.empty() && st.top() != ')')
             {
                 sol += st.top();
                 st.pop();
@@ -90,13 +77,14 @@ string infix2Prefix(string s)
         sol += st.top();
         st.pop();
     }
+
+    reverse(sol.begin(), sol.end());
     return sol;
 }
 
 int main()
 {
-    // string s = "2+3*8/4-1";
-    // cout << infixToPostfix(s);
     string s = "(a-b/c)*(a/k-l)";
+
     cout << infix2Prefix(s);
 }
