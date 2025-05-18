@@ -43,4 +43,19 @@ int main()
         cout << element << " ";
     }
     cout << endl;
+
+    vector<int> v3 = {1, 2, 3, 4, 5};
+    cout << "Initial Vector " << endl;
+    for (auto i : v3)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+    auto reverseBeing = v3.rbegin();
+    auto reverseEnd = v3.rend();
+    cout << "Reverse iterator: " << endl;
+    for (auto i = reverseBeing; i < reverseEnd; i++)
+    {
+        cout << *i << " ";
+    }
 }
