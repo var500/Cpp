@@ -20,7 +20,3 @@ This repository contains a collection of coding questions focused on Data Struct
 ## Contributing
 
 Contributions are welcome! Feel free to add new questions, improve solutions, or suggest enhancements.
-
-## License
-
-This project is licensed under the MIT License.
